@@ -1,0 +1,4 @@
+{ "name":"UncheckedAccount", 
+  "match": ["UncheckedAccount<"], 
+  "description":"Found an UncheckedAccount account type check for security safety"
+}

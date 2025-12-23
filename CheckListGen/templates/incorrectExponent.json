@@ -1,0 +1,4 @@
+{ "name":"IncorrectExponent", 
+  "match": ["^","**"], 
+  "description":"Found an IncorrectExponent exponent math should use .pow()"
+}

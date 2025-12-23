@@ -1,0 +1,4 @@
+{ "name":"Equivalent", 
+  "match": ["=="], 
+  "description":"Found an exact equivalency check"
+}

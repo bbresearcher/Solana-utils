@@ -1,0 +1,4 @@
+{ "name":"ExternalInvoke", 
+  "match": ["::invoke"], 
+  "description":"Found a Cross Program Invocation, double check security"
+}
