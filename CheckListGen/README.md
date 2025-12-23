@@ -45,6 +45,13 @@ python3 checkListGen.py <project_dir> <rules_dir> [--ignore-dirs <dirs>]
 python3 checkListGen.py ./my-anchor-project ./templates --ignore-dirs "node_modules,target"
 ```
 
+### Installation
+Please install using a virtual environment.
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
 ## Output
 
 The script generates a `checkList.md` file containing:
@@ -54,6 +61,7 @@ The script generates a `checkList.md` file containing:
 3. **Account Usage Checklist**: Comprehensive account usage matrix
 4. **Rule Check Results**: Code snippets matching security templates
 
+***
 ## Example Output
 
 ```markdown
@@ -73,6 +81,39 @@ The script generates a `checkList.md` file containing:
   - **Attributes:** None specified
 ```
 
+## Rule checks returned the list of code to check below:
+### File: /example/programs/example/src/lib.rs
+   #: Match found on : UncheckedAccount<
+   #: Found an UncheckedAccount account type check for security safety
+
+```
+23-        /// CHECK: User profile account
+24:        pub user_profile: UncheckedAccount<'info>,
+25-        pub authority: Signer<'info>,
+
+```
+### File: /example/programs/example/src/lib.rs
+   #: Match found on : +
+   #: Found math operator check code for over/underflows
+
+```
+73-
+74:        profile.nft_count += 1;
+75-       
+
+```
+### File: /example/programs/example/src/lib.rs
+   #: Match found on : ==
+   #: Found an exact equivalency check
+
+```
+69-        require!(
+70:            profile.authority == ctx.accounts.authority.key(),
+71-           ExampleError::Unauthorized
+
+```
+*end of example output*
+***
 ## Template Files
 
 Templates are JSON files in the `templates/` directory:
